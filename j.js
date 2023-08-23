@@ -18,14 +18,8 @@ let y = 50
 let rotate = 0
 
 
-// // fix this to change color after 100px 
-// if (movingBox.style.width >= `${100}px` && movingBox.style.height >= `${100}px`){
-//     // y = 25
-//     // x = 25
-//     movingBox.style.width = `${50}px`
-//     movingBox.style.height = `${50}px`
-//     movingBox.style.backgroundColor = "red"
-// }
+
+
 
 
 
@@ -38,16 +32,38 @@ incrButn.addEventListener("click", ()=>{
     rotate += 90
 
     inputIncrement.value = value_inputIncrement += 1 
-    inputDecrement.value = value_inputDecrement -= 1
+    inputDecrement.value = value_inputDecrement = 0
     
     movingBox.style.transition = "all 0.5s"
     movingBox.style.transform = `rotate(${rotate}deg)`
     movingBox.style.width = `${x}px`
     movingBox.style.height = `${y}px`
 
+    if (x > 550 && y > 550){
+        console.log("rata")
+        x = 50
+        y = 50
+        movingBox.style.width = `${x}px`
+        movingBox.style.height = `${y}px`
+        movingBox.style.backgroundColor = "beige"
+        movingBox.classList.remove("shadowww")
+    }
+
+    if ( x > 17 && y > 17){
+        movingBox.style.backgroundColor = "beige"
+        movingBox.classList.remove("shadowww")
+    }
+
+    if (x > 490 && y > 490){
+        movingBox.style.backgroundColor = "red"
+        movingBox.classList.add("shadowww")
+    }
+
     console.log(`\nwidth -> ${movingBox.style.width}`)
     console.log(`height -> ${movingBox.style.height}`)
 })
+
+
 
 
 decrButn.addEventListener("click", ()=>{
@@ -55,16 +71,33 @@ decrButn.addEventListener("click", ()=>{
     y -= y * (20/100)
     rotate -= 90
 
-    
-    inputIncrement.value = value_inputIncrement -= 1
+    inputIncrement.value = value_inputIncrement = 0
     inputDecrement.value = value_inputDecrement += 1
-
-
 
     movingBox.style.transition = "all 0.5s"
     movingBox.style.transform = `rotate(${rotate}deg)`
     movingBox.style.width = `${x}px`
     movingBox.style.height = `${y}px`
+    
+    if (x < 550 && y < 550){
+        movingBox.style.backgroundColor = "beige"
+        movingBox.classList.remove("shadowww")
+    }
+
+    if (x < 20 && y < 20){
+        movingBox.style.backgroundColor = "red"
+        movingBox.classList.add("shadowww")
+    }
+
+    if (x < 15 && y < 15){
+        console.log("rata")
+        x = 50
+        y = 50
+        movingBox.style.width = `${x}px`
+        movingBox.style.height = `${y}px`
+        movingBox.style.backgroundColor = "beige"
+        movingBox.classList.remove("shadowww")
+    }
 
     console.log(`\nwidth -> ${movingBox.style.width}`)
     console.log(`height -> ${movingBox.style.height}`)
